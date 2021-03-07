@@ -1,12 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
-index = 0;
+numButtons = 0;
 draw_set_font(fnt_test);
 var button = function(name) {
-	draw_text(10, 10 + 30 * index, "[" + string(index + 1) + "]: " + name);
-	return keyboard_check_pressed(ord("1") + index++);
+	draw_text(10, 10 + 30 * numButtons, "[" + string(numButtons + 1) + "]: " + name);
+	return keyboard_check_pressed(ord("1") + numButtons++);
 }
-if (button("Simple")) {
+if (button("Chain")) {
 	(new Promise(function(done, fail) {
 		setTimeout(function(_done, _fail) {
 			if (0) _done("hello!"); else _fail("bye!");
@@ -19,7 +19,7 @@ if (button("Simple")) {
 		trace("done!");
 	});
 }
-if (button("all()")) {
+if (button("afterAll()")) {
 	Promise.afterAll([
 		Promise.resolve(3),
 		42,

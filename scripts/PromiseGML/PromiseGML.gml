@@ -88,7 +88,7 @@ function __Promise(_handler/*:function*/) constructor {
 			with ({
 				__self: _self,
 				__deff: _deferred,
-			}) setTimeout(function() {
+			}) ds_list_add(__Promise_soon, function() {
 				var _deff = __deff;
 				with (__self) {
 					var _cb = __state == 1 ? _deff.onFulfilled : _deff.onRejected;
@@ -109,7 +109,7 @@ function __Promise(_handler/*:function*/) constructor {
 					}
 					_deff.promise.__resolve(_ret);
 				}
-			}, 0);
+			});
 		}
 	}
 	
@@ -148,11 +148,11 @@ function __Promise(_handler/*:function*/) constructor {
 	static __finale = function() {
 		var _len = array_length(self.__deferreds);
 		if (self.__state == 2 && _len == 0) {
-			setTimeout(function() {
+			ds_list_add(__Promise_soon, function() {
 				if (!self.__handled) {
 					show_debug_message("Possible Unhandled Promise Rejection: " + string(__value));
 				}
-			}, 0);
+			});
 		}
 		for (var _i = 0; _i < _len; _i++) {
 			self.__handle(self.__deferreds[_i]);
@@ -165,6 +165,24 @@ function __Promise(_handler/*:function*/) constructor {
 
 /// @hint new Promise(fn:function)
 globalvar Promise; Promise = /*#cast*/ method({}, __Promise);
+
+globalvar __Promise_soon; __Promise_soon = ds_list_create(); /// @is {ds_list<function>}
+
+/// @hint Promise.update()
+function __Promise_update() {
+	var _soon = __Promise_soon;
+	if (ds_list_empty(_soon)) exit;
+	static _copy = ds_list_create();
+	ds_list_clear(_copy);
+	ds_list_copy(_copy, _soon);
+	ds_list_clear(_soon);
+	var _len = ds_list_size(_copy);
+	for (var _ind = 0; _ind < _len; _ind++) {
+		_copy[|_ind]();
+	}
+	ds_list_clear(_copy);
+}
+Promise.update = __Promise_update;
 
 ///@hint Promise.resolve(value:any)->Promise
 function Promise_resolve(_value/*:any*/)/*->Promise*/ {
