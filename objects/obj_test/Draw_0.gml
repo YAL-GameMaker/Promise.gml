@@ -2,7 +2,7 @@
 // You can write your code in this editor
 index = 0;
 draw_set_font(fnt_test);
-function button(name) {
+var button = function(name) {
 	draw_text(10, 10 + 30 * index, "[" + string(index + 1) + "]: " + name);
 	return keyboard_check_pressed(ord("1") + index++);
 }
@@ -20,8 +20,8 @@ if (button("Simple")) {
 	});
 }
 if (button("all()")) {
-	Promise_all([
-		Promise_resolve(3),
+	Promise.afterAll([
+		Promise.resolve(3),
 		42,
 		new Promise(function(resolve, reject) {
 			setTimeout(resolve, 100, "foo");
@@ -31,8 +31,8 @@ if (button("all()")) {
 	});
 }
 if (button("allSettled()")) {
-	Promise_allSettled([
-		Promise_resolve(3),
+	Promise.allSettled([
+		Promise.resolve(3),
 		42,
 		new Promise(function(resolve, reject) {
 			setTimeout(reject, 100, "drats");
@@ -42,7 +42,7 @@ if (button("allSettled()")) {
 	});
 }
 if (button("race()")) {
-	Promise_race([
+	Promise.race([
 		new Promise(function(resolve, reject) {
 			setTimeout(resolve, 500, "one");
 		}),

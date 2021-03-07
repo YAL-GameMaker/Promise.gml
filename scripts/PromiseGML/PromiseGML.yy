@@ -6,7 +6,7 @@
     "path": "folders/Promise.gml.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Promise",
+  "name": "PromiseGML",
   "tags": [],
   "resourceType": "GMScript",
 }
