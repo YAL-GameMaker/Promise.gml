@@ -1,11 +1,12 @@
 {
   "resources": [
-    {"id":{"name":"setTimeout","path":"scripts/setTimeout/setTimeout.yy",},"order":3,},
+    {"id":{"name":"setTimeout","path":"scripts/setTimeout/setTimeout.yy",},"order":0,},
     {"id":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},"order":0,},
     {"id":{"name":"PromiseGML","path":"scripts/PromiseGML/PromiseGML.yy",},"order":0,},
     {"id":{"name":"fnt_test","path":"fonts/fnt_test/fnt_test.yy",},"order":2,},
     {"id":{"name":"trace","path":"scripts/trace/trace.yy",},"order":4,},
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},"order":1,},
+    {"id":{"name":"http_get_cb","path":"scripts/http_get_cb/http_get_cb.yy",},"order":1,},
   ],
   "Options": [
     {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},
@@ -31,6 +32,7 @@
   "Folders": [
     {"folderPath":"folders/Promise.gml.yy","order":0,"resourceVersion":"1.0","name":"Promise.gml","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Demo.yy","order":1,"resourceVersion":"1.0","name":"Demo","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Demo/async.yy","order":3,"resourceVersion":"1.0","name":"async","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

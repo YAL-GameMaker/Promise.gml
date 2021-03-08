@@ -53,3 +53,13 @@ if (button("race()")) {
 		trace(val);
 	});
 }
+if (button("HTTP requests")) {
+	http_get_promise("https://yal.cc/ping").andThen(function(v) {
+		trace("success", v);
+		return http_get_promise("https://yal.cc/ping");
+	}).andThen(function(v) {
+		trace("success2", v);
+	}).andCatch(function(e) {
+		trace("failed", e);
+	})
+}

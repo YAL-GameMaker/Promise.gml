@@ -6,7 +6,7 @@
     "path": "folders/Demo/async.yy",
   },
   "resourceVersion": "1.0",
-  "name": "setTimeout",
+  "name": "http_get_cb",
   "tags": [],
   "resourceType": "GMScript",
 }
