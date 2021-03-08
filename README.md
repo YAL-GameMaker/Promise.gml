@@ -73,3 +73,4 @@ http_get_promise("https://yal.cc/ping").andThen(function(v) {
 
 * Non-exact naming (but feel free to pick your own aliases).
 * Have to "promisify" built-in functions to be able to finely use them with promises.
+* I could not port the original JS library's unit tests because their dependencies have far more code than the library itself.
