@@ -7,6 +7,7 @@
     {"id":{"name":"trace","path":"scripts/trace/trace.yy",},"order":4,},
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},"order":1,},
     {"id":{"name":"http_get_cb","path":"scripts/http_get_cb/http_get_cb.yy",},"order":1,},
+    {"id":{"name":"get_string_cb","path":"scripts/get_string_cb/get_string_cb.yy",},"order":2,},
   ],
   "Options": [
     {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},

@@ -63,3 +63,18 @@ if (button("HTTP requests")) {
 		trace("failed", e);
 	})
 }
+if (button("messages")) {
+	with ({ ip: "", port: "", alias: "" })
+	get_string_promise("IP?", "127.0.0.1").andThen(function(_ip) {
+		ip = _ip;
+		return get_string_promise("Port?", "5394");
+	}).andThen(function(_port) {
+		port = _port;
+		return get_string_promise("Alias?", "Me");
+	}).andThen(function(_alias) {
+		alias = _alias;
+		show_debug_message([ip, port, alias]);
+	}).andCatch(function(e) {
+		show_debug_message("Cancelled!");
+	});
+}
